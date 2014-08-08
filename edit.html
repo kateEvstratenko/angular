@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html data-ng-app>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <form data-ng-controller="EmployeeController">
+        <table>
+            <tr>
+                <th>
+                    First name
+                </th>
+                <th>
+                    Last name
+                </th>
+            </tr>
+            <tr data-ng-repeat="employee in employees">
+                <td data-ng-bind="employee.firstName"></td>
+                <td data-ng-bind="employee.lastName"></td>
+                <td data-ng-bind="employee.lastName">Edit</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+<script src="js/lib/angular.js"></script>
+<script src="js/controllers/Employee.js"></script>

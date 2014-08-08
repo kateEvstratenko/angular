@@ -1,0 +1,25 @@
+﻿<div>
+    <table>
+        <tr>
+            <th>
+                First name
+            </th>
+            <th>
+                Last name
+            </th>
+        </tr>
+        <tr data-ng-repeat="employee in employees">
+            <td>
+                {{employee.firstName}}
+            </td>
+            <td>
+                {{employee.lastName}}
+            </td>
+            <td>
+                <a data-ng-href="#/employees/{{employee.id}}">
+                    Edit
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
