@@ -1,4 +1,6 @@
 ﻿<div>
+    First name: 
+    <input type="text" data-ng-model="query" />
     <table>
         <tr>
             <th>
@@ -8,7 +10,7 @@
                 Last name
             </th>
         </tr>
-        <tr data-ng-repeat="employee in employees">
+        <tr data-ng-repeat="employee in employees | firstNameFilter: query">
             <td>
                 {{employee.firstName}}
             </td>
