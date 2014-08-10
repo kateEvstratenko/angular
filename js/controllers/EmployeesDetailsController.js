@@ -1,3 +1,3 @@
-﻿angular.module('employeeApp').controller('EmployeesDetailsController', function ($scope, $routeParams) {
-    $scope.employee_id = $routeParams.id;
+﻿angular.module('employeeApp').controller('EmployeesDetailsController', function ($scope, $routeParams, Employee) {
+    $scope.employee = Employee.get({ id: $routeParams.id });
 });

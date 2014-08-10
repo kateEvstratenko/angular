@@ -1,6 +1,10 @@
 ﻿<div>
     First name: 
-    <input type="text" data-ng-model="query" />
+    <input type="text" data-ng-model="firstNameInput" />
+    
+    Last name:
+    <input type="text" data-ng-model="lastNameInput" />
+
     <table>
         <tr>
             <th>
@@ -10,18 +14,23 @@
                 Last name
             </th>
         </tr>
-        <tr data-ng-repeat="employee in employees | firstNameFilter: query">
+        <tr data-ng-repeat="employee in employees | firstNameFilter:firstNameInput | lastNameFilter:lastNameInput">
             <td>
-                {{employee.firstName}}
+                <a data-ng-href="#/employees/{{employee.id}}">{{employee.firstName}}</a>
             </td>
             <td>
                 {{employee.lastName}}
             </td>
             <td>
-                <a data-ng-href="#/employees/{{employee.id}}">
+                {{employee.department}}
+            </td>
+            <td>
+                <a data-ng-href="#/employees/{{employee.id}}/edit">
                     Edit
                 </a>
             </td>
         </tr>
     </table>
+    
+    <a data-ng-href="#/create">Add new employee</a>
 </div>

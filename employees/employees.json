@@ -1,0 +1,38 @@
+[
+  {
+    "id": "53e60bd686487633a7ff1f23",
+    "firstName": "Sharron",
+    "lastName": "Boone",
+    "department": 1
+  },
+  {
+    "id": "53e60bd6bbb7f99310f57579",
+    "firstName": "Conner",
+    "lastName": "Holloway",
+    "department": 1
+  },
+  {
+    "id": "53e60bd654b24130a53b2dbd",
+    "firstName": "Powers",
+    "lastName": "Knowles",
+    "department": 1
+  },
+  {
+    "id": "53e60bd68deba278f4255b6d",
+    "firstName": "Byrd",
+    "lastName": "Hardy",
+    "department": 2
+  },
+  {
+    "id": "53e60bd62c862bbae7b5ba76",
+    "firstName": "Ortiz",
+    "lastName": "Obrien",
+    "department": 1
+  },
+  {
+    "id": "53e60bd614534cd88adef7b2",
+    "firstName": "Adkins",
+    "lastName": "Avila",
+     "department": 1
+  }
+]
