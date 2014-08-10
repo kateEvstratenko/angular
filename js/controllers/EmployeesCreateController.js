@@ -17,8 +17,10 @@ angular.module('employeeApp').controller('EmployeesCreateController', function (
         department: 1
     };
 
+    $scope.abilities = employeesFactory.query({ collectionName: 'abilities'});
+
     $scope.save = function () {
-        employeesFactory.save($scope.employee);
+        employeesFactory.save({collectionName: 'employeesList'}, $scope.employee);
         $location.path('/employees');
     }
 });
