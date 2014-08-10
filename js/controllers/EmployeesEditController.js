@@ -4,6 +4,7 @@
     });
 
     $scope.save = function () {
-        alert($scope.employee.firstName);
+        alert($scope.employee.id);
+        Employee.update($scope.employee, { id: $scope.employee.id });
     }
 });

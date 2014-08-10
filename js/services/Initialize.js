@@ -2,6 +2,8 @@
     .config(['$routeProvider', 
         function ($routeProvider) {
 
+            //$routeProvider.defaults.stripTrailingSlashes = false;
+
             $routeProvider.when('/employees', {
                 controller: 'EmployeesListController',
                 templateUrl: 'employeesList.html'
