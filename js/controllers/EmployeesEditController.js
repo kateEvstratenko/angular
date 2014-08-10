@@ -1,10 +1,17 @@
-﻿angular.module('employeeApp').controller('EmployeesEditController', function ($scope, $routeParams, Employee) {
-    $scope.employee = Employee.get({ id: $routeParams.id }, function (employee) {
-        $scope.employee = employee;
-    });
+﻿angular.module('employeeApp').controller('EmployeesEditController', function ($scope, $routeParams, $location, employeesFactory) {
+    $scope.employee = employeesFactory.get({ id: $routeParams.id });//, function (employee) {
+        //$scope.employee = employee;
+    //});
 
-    $scope.save = function () {
-        alert($scope.employee.id);
-        Employee.update($scope.employee, { id: $scope.employee.id });
+    $scope.save = function() {
+        employeesFactory.update({
+                id: $scope.employee._id.$oid
+            },{
+                firstName: $scope.employee.firstName,
+                lastName: $scope.employee.lastName,
+                department: $scope.employee.department
+            }
+        );
+        $location.path('/employees');
     }
 });

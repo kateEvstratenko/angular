@@ -1,3 +1,3 @@
-﻿angular.module('employeeApp').controller('EmployeesListController', function($scope, Employee) {
-    $scope.employees = Employee.query();
+﻿angular.module('employeeApp').controller('EmployeesListController', function ($scope, employeesFactory) {
+    $scope.employees = employeesFactory.query();
 });

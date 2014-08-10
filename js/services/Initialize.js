@@ -19,6 +19,11 @@
                 templateUrl: 'edit.html',
             });
 
+            $routeProvider.when('/employees/:id/delete', {
+                controller: 'EmployeesDeleteController',
+                templateUrl: 'delete.html',
+            });
+
             $routeProvider.when('/create', {
                 controller: 'EmployeesCreateController',
                 templateUrl: 'create.html',

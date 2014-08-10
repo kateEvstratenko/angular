@@ -10,7 +10,7 @@
     };
 })();
 
-angular.module('employeeApp').controller('EmployeesCreateController', function ($scope, $location, Employee) {
+angular.module('employeeApp').controller('EmployeesCreateController', function ($scope, $location, employeesFactory) {
     $scope.employee = {
         firstName: '',
         lastName: '',
@@ -18,7 +18,7 @@ angular.module('employeeApp').controller('EmployeesCreateController', function (
     };
 
     $scope.save = function () {
-        Employee.save($scope.employee);
-        $location.path("/employees");
+        employeesFactory.save($scope.employee);
+        $location.path('/employees');
     }
 });

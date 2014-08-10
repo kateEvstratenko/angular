@@ -13,6 +13,12 @@
             <th>
                 Last name
             </th>
+            <th>
+                Department
+            </th>
+            <th>
+                
+            </th>
         </tr>
         <tr data-ng-repeat="employee in employees | firstNameFilter:firstNameInput | lastNameFilter:lastNameInput">
             <td>
@@ -22,15 +28,19 @@
                 {{employee.lastName}}
             </td>
             <td>
-                {{employee._id.$oid}}
+                {{employee.department}}
             </td>
             <td>
                 <a data-ng-href="#/employees/{{employee._id.$oid}}/edit">
                     Edit
                 </a>
+                <a data-ng-href="#/employees/{{employee._id.$oid}}/delete">
+                    Delete
+                </a>
             </td>
         </tr>
     </table>
-    
-    <a data-ng-href="#/create">Add new employee</a>
+    <div>
+        <a data-ng-href="#/create">Add new employee</a>
+    </div>
 </div>
