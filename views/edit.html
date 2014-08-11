@@ -1,16 +1,29 @@
-﻿<div>
-    <form name="editForm">
-        First name:
-        <input type="text" data-ng-model="employee.firstName" />
+﻿<div class="container">
+    <div class="well row">
+        <div class="col-md-3">
+            <form>
+                <div class="form-group">
+                    <label class="control-label">First name:</label>
+                    <input type="text" data-ng-model="employee.firstName" class="form-control" />
+                </div>
 
-        Last name:
-        <input type="text" data-ng-model="employee.lastName" />
+                <div class="form-group">
+                    <label class="control-label">Last name:</label>
+                    <input type="text" data-ng-model="employee.lastName" class="form-control" />
+                </div>
 
-        <select multiple="multiple" data-ng-model="employee.abilities">
-            <option ng-repeat="ability in abilities">{{ability.name}}</option>
-        </select>
+                <div class="form-group">
+                    <label class="control-label">Abilities:</label>
+                    <select multiple="multiple" data-ng-model="employee.abilities" class="form-control">
+                        <option ng-repeat="ability in abilities">{{ability.name}}</option>
+                    </select>
+                    {{employee.abilities}}
+                </div>
 
-        {{employee.abilities}}
-        <input type="button" data-ng-click="save(employee, createForm)" value="Save" />
-    </form>
+                <input type="button" data-ng-click="save(employee)" value="Save" class="btn btn-default" />
+            </form>
+        </div>
+    </div>
 </div>
+
+

@@ -2,19 +2,18 @@
 <html>
     <head>
         <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body data-ng-app="employeeApp">
-        <div class="content" data-ng-view></div>
+        <div data-ng-view></div>
         
         <script src="js/lib/angular.js"></script>
         <script src="js/lib/angular-route.js"></script>
         <script src="js/lib/angular-resource.js"></script>
-
         <script src="js/services/Initialize.js"></script>
         <script src="js/services/Employee.js"></script>
         <script src="js/services/Ability.js"></script>
-
         <script src="js/services/Filters/abilitiesFilter.js"></script>
         <script src="js/services/Filters/departmentFilter.js"></script>
         <script src="js/services/Filters/firstNameFilter.js"></script>

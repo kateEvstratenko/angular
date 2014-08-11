@@ -1,72 +1,83 @@
-﻿<div>
-    <form class="filterForm">
-        <div class="leftPartFilterForm">
-            <div class="filterItem">
-                First name:
-                <input type="text" data-ng-model="firstNameInput" />
-            </div>
-            
-            <div class="filterItem">
-                Last name:
-                <input type="text" data-ng-model="lastNameInput" />
-            </div>
+﻿<div class="container">
+    <div class="well row">
+        <div class="col-md-3">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label class="control-label">First name:</label>
+                    <input type="text" data-ng-model="firstNameInput" class="form-control" />
+                </div>
 
-            <div class="filterItem">
-                Department:
-                <input type="text" data-ng-model="departmentInput" />
-            </div>
-                Abilities:
+                <div class="form-group">
+                    <label class="control-label">Last name:</label>
+                    <input type="text" data-ng-model="lastNameInput" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Department:</label>
+                    <input type="text" data-ng-model="departmentInput" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Abilities:</label>
+                    <select multiple="multiple" data-ng-model="abilitiesSelect" class="form-control">
+                        <option ng-repeat="ability in abilities">{{ability.name}}</option>
+                    </select>
+                </div>
+            </form>
         </div>
+        <div class="col-md-9">
+            <table class="table table-hover">
+                <tr>
+                    <th>
+                        First name
+                    </th>
+                    <th>
+                        Last name
+                    </th>
+                    <th>
+                        Department
+                    </th>
+                    <th>
+                        Abilities
+                    </th>
+                    <th>
 
-        <div>
-            <select multiple="multiple" data-ng-model="abilitiesSelect">
-                <option ng-repeat="ability in abilities">{{ability.name}}</option>
-            </select>
-        </div>
-    </form>
+                    </th>
+                    <th>
 
-    <table class="employeesTable">
-        <tr>
-            <th>
-                First name
-            </th>
-            <th>
-                Last name
-            </th>
-            <th>
-                Department
-            </th>
-            <th>
-                Abilities
-            </th>
-        </tr>
-        <tr data-ng-repeat="employee in employees
+                    </th>
+                </tr>
+                <tr data-ng-repeat="employee in employees
             | firstNameFilter:firstNameInput
             | lastNameFilter:lastNameInput
             | departmentFilter:departmentInput
             | abilitiesFilter:abilitiesSelect">
 
-            <td>
-                <a data-ng-href="#/employees/{{employee._id.$oid}}">{{employee.firstName}}</a>
-            </td>
-            <td>
-                {{employee.lastName}}
-            </td>
-            <td>
-                {{employee.department}}
-            </td>
-            <td>
-                {{employee.abilities}}
-            </td>
-            <td>
-                <a data-ng-href="#/employees/{{employee._id.$oid}}/edit">
-                    Edit
-                </a>
-                <input type="button" data-ng-click="delete(employee)" value="Delete" />
-            </td>
-        </tr>
-    </table>
-    <div>
-        <a data-ng-href="#/create">Add new employee</a>
+                    <td>
+                        <a data-ng-href="#/employees/{{employee._id.$oid}}">{{employee.firstName}}</a>
+                    </td>
+                    <td>
+                        {{employee.lastName}}
+                    </td>
+                    <td>
+                        {{employee.department}}
+                    </td>
+                    <td>
+                        {{employee.abilities}}
+                    </td>
+                    <td>
+                        <a data-ng-href="#/employees/{{employee._id.$oid}}/edit">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <input type="button" data-ng-click="delete(employee)" class="btn-default" value="Delete" />
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <a data-ng-href="#/create">Add new employee</a>
+            </div>
+        </div>
     </div>
 </div>

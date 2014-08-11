@@ -1,21 +1,34 @@
-﻿<div>
-    <span class="title">First name:</span>
-    {{employee.firstName}}
-</div>
-
-<div>
-    <span class="title">Last name:</span>
-    {{employee.lastName}}
-</div>
-
-<div>
-    <span class="title">Department:</span>
-    {{employee.department}}
-</div>
-
-<div>
-    <span class="title">Abilities:</span> 
-    <div data-ng-repeat="ability in employee.abilities">
-        {{ability}}
-    </div>
+﻿<div class="container">
+    <div class="well row">
+            <table class="table table-hover">
+                <tr>
+                    <th>
+                        First name
+                    </th>
+                    <th>
+                        Last name
+                    </th>
+                    <th>
+                        Department
+                    </th>
+                    <th>
+                        Abilities
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        {{employee.firstName}}
+                    </td>
+                    <td>
+                        {{employee.lastName}}
+                    </td>
+                    <td>
+                        {{employee.department}}
+                    </td>
+                    <td>
+                        {{employee.abilities}}
+                    </td>
+                </tr>
+            </table>
+        </div>
 </div>
