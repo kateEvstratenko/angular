@@ -1,29 +1,34 @@
-﻿angular.module('employeeApp', ['ngRoute', 'ngResource'])
-    .config(['$routeProvider', 
-        function ($routeProvider) {
+﻿(function () {
+    'use strict';
 
-            $routeProvider.when('/employees', {
-                controller: 'EmployeesListController',
-                templateUrl: 'views/employeesList.html'
-            });
+    angular.module('employeeApp', ['ngRoute', 'ngResource'])
+        .config(['$routeProvider',
+            function ($routeProvider) {
 
-            $routeProvider.when('/employees/:id', {
-                controller: 'EmployeesDetailsController',
-                templateUrl: 'views/details.html',
-            });
+                $routeProvider.when('/employees', {
+                    controller: 'EmployeesListController',
+                    templateUrl: 'views/employeesList.html'
+                });
 
-            $routeProvider.when('/employees/:id/edit', {
-                controller: 'EmployeesEditController',
-                templateUrl: 'views/edit.html',
-            });
+                $routeProvider.when('/employees/:id', {
+                    controller: 'EmployeesDetailsController',
+                    templateUrl: 'views/details.html',
+                });
 
-            $routeProvider.when('/create', {
-                controller: 'EmployeesCreateController',
-                templateUrl: 'views/create.html',
-            });
-        
-            $routeProvider.otherwise({
-                redirectTo: '/employees'
-            });
-    }]
-);
+                $routeProvider.when('/employees/:id/edit', {
+                    controller: 'EmployeesEditController',
+                    templateUrl: 'views/edit.html',
+                });
+
+                $routeProvider.when('/create', {
+                    controller: 'EmployeesCreateController',
+                    templateUrl: 'views/create.html',
+                });
+
+                $routeProvider.otherwise({
+                    redirectTo: '/employees'
+                });
+            }]
+    );
+
+})();

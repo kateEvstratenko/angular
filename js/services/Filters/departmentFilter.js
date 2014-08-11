@@ -1,17 +1,22 @@
-﻿angular.module('employeeApp').filter('departmentFilter', function () {
-    return function (items, department) {
+﻿(function () {
+    'use strict';
 
-        if (!department) {
-            return items;
-        }
+    angular.module('employeeApp').filter('departmentFilter', function () {
+        return function (items, department) {
 
-        var arrayToReturn = [];
-        for (var i = 0; i < items.length; i++) {
-            if (items[i].department == department) {
-                arrayToReturn.push(items[i]);
+            if (!department) {
+                return items;
             }
-        }
 
-        return arrayToReturn;
-    }
-});
+            var arrayToReturn = [];
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].department == department) {
+                    arrayToReturn.push(items[i]);
+                }
+            }
+
+            return arrayToReturn;
+        }
+    });
+
+})();

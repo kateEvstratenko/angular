@@ -1,17 +1,22 @@
-﻿angular.module('employeeApp').filter('lastNameFilter', function () {
-    return function (items, lastName) {
+﻿(function () {
+    'use strict';
 
-        if (!lastName) {
-            return items;
-        }
+    angular.module('employeeApp').filter('lastNameFilter', function () {
+        return function (items, lastName) {
 
-        var arrayToReturn = [];
-        for (var i = 0; i < items.length; i++) {
-            if (items[i].lastName.toLowerCase().indexOf(lastName.toLowerCase()) > -1) {
-                arrayToReturn.push(items[i]);
+            if (!lastName) {
+                return items;
             }
-        }
 
-        return arrayToReturn;
-    }
-});
+            var arrayToReturn = [];
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].lastName.toLowerCase().indexOf(lastName.toLowerCase()) > -1) {
+                    arrayToReturn.push(items[i]);
+                }
+            }
+
+            return arrayToReturn;
+        }
+    });
+
+})();

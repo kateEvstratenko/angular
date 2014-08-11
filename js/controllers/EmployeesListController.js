@@ -1,11 +1,16 @@
-﻿angular.module('employeeApp').controller('EmployeesListController', function ($scope, Employee, Ability) {
-    $scope.employees = Employee.query();
-    $scope.abilities = Ability.query();
+﻿(function () {
+    'use strict';
 
-    $scope.delete = function (employeeForDelete) {
-        var employee = new Employee(employeeForDelete);
-        employee.$remove({ id: employee._id.$oid });
+    angular.module('employeeApp').controller('EmployeesListController', function ($scope, Employee, Ability) {
+        $scope.employees = Employee.query();
+        $scope.abilities = Ability.query();
 
-        $scope.employees.splice($scope.employees.indexOf(employee), 1);
-    }
-});
+        $scope.delete = function (employeeForDelete) {
+            var employee = new Employee(employeeForDelete);
+            employee.$remove({ id: employee._id.$oid });
+
+            $scope.employees.splice($scope.employees.indexOf(employee), 1);
+        }
+    });
+
+})();

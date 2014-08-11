@@ -1,17 +1,22 @@
-﻿angular.module('employeeApp').controller('EmployeesCreateController', function ($scope, $location, Employee, Ability) {
-    $scope.employee = {
-        firstName: '',
-        lastName: '',
-        department: 1
-    };
+﻿(function () {
+    'use strict';
 
-    $scope.abilities = Ability.query();
+    angular.module('employeeApp').controller('EmployeesCreateController', function($scope, $location, Employee, Ability) {
+        $scope.employee = {
+            firstName: '',
+            lastName: '',
+            department: 1,
+            abilities: []
+        };
 
-    $scope.save = function () {
-        var employee = new Employee($scope.employee);
+        $scope.abilities = Ability.query();
 
-        employee.$save().then(function () {
-            $location.path('/employees');
-        });
-    }
-});
+        $scope.save = function() {
+            var employee = new Employee($scope.employee);
+
+            employee.$save().then(function() {
+                $location.path('/employees');
+            });
+        }
+    });
+})();
