@@ -1,26 +1,17 @@
-﻿var guid = (function () {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-                   .toString(16)
-                   .substring(1);
-    }
-    return function () {
-        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-               s4() + '-' + s4() + s4() + s4();
-    };
-})();
-
-angular.module('employeeApp').controller('EmployeesCreateController', function ($scope, $location, factory) {
+﻿angular.module('employeeApp').controller('EmployeesCreateController', function ($scope, $location, Employee, Ability) {
     $scope.employee = {
         firstName: '',
         lastName: '',
         department: 1
     };
 
-    $scope.abilities = factory.query({ collectionName: 'abilities' });
+    $scope.abilities = Ability.query();
 
     $scope.save = function () {
-        factory.save({ collectionName: 'employees' }, $scope.employee);
-        $location.path('/employees');
+        var employee = new Employee($scope.employee);
+
+        employee.$save().then(function () {
+            $location.path('/employees');
+        });
     }
 });

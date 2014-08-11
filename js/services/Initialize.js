@@ -1,32 +1,25 @@
-﻿angular.module('employeeApp', ['ngRoute', 'employeeServices'])
+﻿angular.module('employeeApp', ['ngRoute', 'ngResource'])
     .config(['$routeProvider', 
         function ($routeProvider) {
 
-            //$routeProvider.defaults.stripTrailingSlashes = false;
-
             $routeProvider.when('/employees', {
                 controller: 'EmployeesListController',
-                templateUrl: 'employeesList.html'
+                templateUrl: 'views/employeesList.html'
             });
 
             $routeProvider.when('/employees/:id', {
                 controller: 'EmployeesDetailsController',
-                templateUrl: 'details.html',
+                templateUrl: 'views/details.html',
             });
 
             $routeProvider.when('/employees/:id/edit', {
                 controller: 'EmployeesEditController',
-                templateUrl: 'edit.html',
-            });
-
-            $routeProvider.when('/employees/:id/delete', {
-                controller: 'EmployeesDeleteController',
-                templateUrl: 'delete.html',
+                templateUrl: 'views/edit.html',
             });
 
             $routeProvider.when('/create', {
                 controller: 'EmployeesCreateController',
-                templateUrl: 'create.html',
+                templateUrl: 'views/create.html',
             });
         
             $routeProvider.otherwise({

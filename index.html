@@ -1,22 +1,27 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-</head>
-<body data-ng-app="employeeApp">
-    <div data-ng-view></div>
-</body>
-</html>
+    <head>
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body data-ng-app="employeeApp">
+        <div class="content" data-ng-view></div>
+        
+        <script src="js/lib/angular.js"></script>
+        <script src="js/lib/angular-route.js"></script>
+        <script src="js/lib/angular-resource.js"></script>
 
-<script src="js/lib/angular.js"></script>
-<script src="js/lib/angular-route.js"></script>
-<script src="js/lib/angular-resource.js"></script>
-<script src="js/services/Initialize.js"></script>
-<script src="js/services/Factory.js"></script>
-<script src="js/services/Filters.js"></script>
-<script src="js/controllers/EmployeesListController.js"></script>
-<script src="js/controllers/EmployeesDetailsController.js"></script>
-<script src="js/controllers/EmployeesEditController.js"></script>
-<script src="js/controllers/EmployeesDeleteController.js"></script>
-<script src="js/controllers/EmployeesCreateController.js"></script>
+        <script src="js/services/Initialize.js"></script>
+        <script src="js/services/Employee.js"></script>
+        <script src="js/services/Ability.js"></script>
+
+        <script src="js/services/Filters/abilitiesFilter.js"></script>
+        <script src="js/services/Filters/departmentFilter.js"></script>
+        <script src="js/services/Filters/firstNameFilter.js"></script>
+        <script src="js/services/Filters/lastNameFilter.js"></script>
+        <script src="js/controllers/EmployeesListController.js"></script>
+        <script src="js/controllers/EmployeesDetailsController.js"></script>
+        <script src="js/controllers/EmployeesEditController.js"></script>
+        <script src="js/controllers/EmployeesCreateController.js"></script>
+    </body>
+</html>

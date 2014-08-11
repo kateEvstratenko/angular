@@ -7,7 +7,7 @@
         <input type="text" data-ng-model="employee.lastName" />
         
         <select multiple="multiple" data-ng-model="employee.abilities">
-            <option ng-repeat="ability in abilities | filter:ability">{{ability.name}}</option>
+            <option ng-repeat="ability in abilities">{{ability.name}}</option>
         </select>
         {{employee.abilities}}
         <input type="button" data-ng-click="save(employee, createForm)" value="Save"/>
