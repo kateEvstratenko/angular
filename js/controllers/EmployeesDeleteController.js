@@ -1,8 +1,8 @@
-﻿angular.module('employeeApp').controller('EmployeesDeleteController', function ($scope, $routeParams, $location, employeesFactory) {
-    $scope.employee = employeesFactory.get({collectionName: 'employeesList', id: $routeParams.id });
+﻿angular.module('employeeApp').controller('EmployeesDeleteController', function ($scope, $routeParams, $location, factory) {
+    $scope.employee = factory.get({ collectionName: 'employees', id: $routeParams.id });
 
     $scope.delete = function() {
-        employeesFactory.remove({collectionName: 'employeesList', id: $scope.employee._id.$oid});
+        factory.remove({collectionName: 'employees', id: $scope.employee._id.$oid});
         $location.path('/employees');
     }
 });

@@ -10,17 +10,17 @@
     };
 })();
 
-angular.module('employeeApp').controller('EmployeesCreateController', function ($scope, $location, employeesFactory) {
+angular.module('employeeApp').controller('EmployeesCreateController', function ($scope, $location, factory) {
     $scope.employee = {
         firstName: '',
         lastName: '',
         department: 1
     };
 
-    $scope.abilities = employeesFactory.query({ collectionName: 'abilities'});
+    $scope.abilities = factory.query({ collectionName: 'abilities' });
 
     $scope.save = function () {
-        employeesFactory.save({collectionName: 'employeesList'}, $scope.employee);
+        factory.save({ collectionName: 'employees' }, $scope.employee);
         $location.path('/employees');
     }
 });

@@ -1,6 +1,6 @@
 ﻿var employeeServices = angular.module('employeeServices', ['ngResource']);
 
-employeeServices.factory('employeesFactory', 
+employeeServices.factory('factory', 
     function($resource) {
         return $resource('https://api.mongolab.com/api/1/databases/employees/collections/:collectionName' + '/:id?apiKey=z_XFimRxC0qOIzEN8UyZu37oG3rr-AAH', {}, {
             get: { method: 'GET', isArray: false },

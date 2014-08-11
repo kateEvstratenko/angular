@@ -1,4 +1,4 @@
-﻿angular.module('employeeApp').controller('EmployeesListController', function ($scope, employeesFactory) {
-    $scope.employees = employeesFactory.query({ collectionName: 'employeesList' });
-    $scope.abilities = employeesFactory.query({ collectionName: 'abilities' });
+﻿angular.module('employeeApp').controller('EmployeesListController', function ($scope, factory) {
+    $scope.employees = factory.query({ collectionName: 'employees' });
+    $scope.abilities = factory.query({ collectionName: 'abilities' });
 });

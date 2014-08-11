@@ -65,6 +65,7 @@ angular.module('employeeApp').filter('abilitiesFilter', function () {
 
             for (var j = 0; j < abilities.length; j++) {
                 if (items[i].abilities.indexOf(abilities[j]) < 0) {
+                    console.log((abilities[j]).length);
                     toAdd = false;
                     break;
                 }

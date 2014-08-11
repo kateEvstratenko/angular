@@ -1,3 +1,3 @@
-﻿angular.module('employeeApp').controller('EmployeesDetailsController', function ($scope, $routeParams, employeesFactory) {
-    $scope.employee = employeesFactory.get({ collectionName: 'employeesList', id: $routeParams.id });
+﻿angular.module('employeeApp').controller('EmployeesDetailsController', function ($scope, $routeParams, factory) {
+    $scope.employee = factory.get({ collectionName: 'employees', id: $routeParams.id });
 });

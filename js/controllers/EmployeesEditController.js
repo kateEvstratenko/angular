@@ -1,13 +1,13 @@
-﻿angular.module('employeeApp').controller('EmployeesEditController', function ($scope, $routeParams, $location, employeesFactory) {
-    $scope.employee = employeesFactory.get({collectionName: 'employeesList', id: $routeParams.id });//, function (employee) {
+﻿angular.module('employeeApp').controller('EmployeesEditController', function ($scope, $routeParams, $location, factory) {
+    $scope.employee = factory.get({collectionName: 'employees', id: $routeParams.id });//, function (employee) {
         //$scope.employee = employee;
     //});
 
-    $scope.abilities = employeesFactory.query({ collectionName: 'abilities'});
+    $scope.abilities = factory.query({ collectionName: 'abilities'});
 
     $scope.save = function() {
-        employeesFactory.update({
-            collectionName: 'employeesList',
+        factory.update({
+            collectionName: 'employees',
             id: $scope.employee._id.$oid
             },{
                 firstName: $scope.employee.firstName,
