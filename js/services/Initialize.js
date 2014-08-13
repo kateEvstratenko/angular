@@ -43,15 +43,4 @@
                 });
             }]
     );
-
-    angular.module('employeeApp').directive('tagDirective', function () {
-        return {
-            link: function (scope, Ability) {
-                scope.loadAbilities = function () {
-                    return Ability.query().$promise;
-                };
-            }
-        }
-    });
-
 })();
