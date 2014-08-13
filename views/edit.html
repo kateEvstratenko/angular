@@ -1,6 +1,6 @@
 ﻿<div class="container">
     <div class="well row">
-        <div class="col-md-3">
+        <div class="col-md-3" >
             <form>
                 <div class="form-group">
                     <label class="control-label">First name:</label>
@@ -12,12 +12,22 @@
                     <input type="text" data-ng-model="employee.lastName" class="form-control" />
                 </div>
 
+
+                <tags-input ng-model="employee.abilities" display-property="name" min-length="1" placeholder="Add ability...">
+                    <auto-complete source="loadAbilities($query)" min-length="1"></auto-complete>
+                </tags-input>
+                <p>Model: {{employee.abilities}}</p>
+
                 <div class="form-group">
                     <label class="control-label">Abilities:</label>
-                    <select multiple="multiple" data-ng-model="employee.abilities" class="form-control">
-                        <option ng-repeat="ability in abilities">{{ability.name}}</option>
-                    </select>
-                    {{employee.abilities}}
+
+                    {{newAbilityName}}
+                    <input type="text" ng-model="newAbilityName" placeholder="type..." typeahead="ability.name for ability in abilities" class="form-control">
+
+                    <input type="button" data-ng-click="addAbility()" value="Add" class="btn btn-default" />
+                    <!--<select multiple="multiple" data-ng-model="employee.abilities" class="form-control">
+                    <option ng-repeat="ability in abilities"></option>
+                </select>-->
                 </div>
 
                 <input type="button" data-ng-click="save(employee)" value="Save" class="btn btn-default" />
@@ -25,5 +35,6 @@
         </div>
     </div>
 </div>
+
 
 

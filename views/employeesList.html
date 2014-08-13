@@ -63,7 +63,7 @@
                         {{employee.department}}
                     </td>
                     <td>
-                        {{employee.abilities}}
+                        <span class="label label-primary labelSpacing" ng-repeat="ability in employee.abilities">{{ability.name}}</span>
                     </td>
                     <td>
                         <a data-ng-href="#/employees/{{employee._id.$oid}}/edit">

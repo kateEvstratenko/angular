@@ -13,10 +13,16 @@
                 var toAdd = true;
 
                 for (var j = 0; j < abilities.length; j++) {
-                    if (items[i].abilities.indexOf(abilities[j]) < 0) {
-                        console.log((abilities[j]).length);
+                    var thereIs = false;
+
+                    for (var k = 0; k < items[i].abilities.length; k++) {
+                        if (items[i].abilities[k].name.indexOf(abilities[j]) > -1) {
+                            thereIs = true;
+                            break;
+                        }
+                    }
+                    if (!thereIs) {
                         toAdd = false;
-                        break;
                     }
                 }
 

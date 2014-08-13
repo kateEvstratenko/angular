@@ -7,7 +7,7 @@
                 get: { method: 'GET', isArray: false },
                 query: { method: 'GET', params: {}, isArray: true },
                 save: { method: 'POST' },
-                update: { method: 'PUT' },
+                update: { method: 'PUT', },
                 remove: { method: 'DELETE' }
             });
         });

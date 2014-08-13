@@ -14,8 +14,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Abilities:</label>
-                    <select multiple="multiple" data-ng-model="employee.abilities" class="form-control">
-                        <option ng-repeat="ability in abilities">{{ability.name}}</option>
+                    <select multiple="multiple" data-ng-model="employee.abilities" ng-options="ability.name for ability in abilities" class="form-control">
                     </select>
                     {{employee.abilities}}
                 </div>

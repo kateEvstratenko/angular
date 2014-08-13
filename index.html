@@ -2,15 +2,19 @@
 <html>
     <head>
         <title>Title</title>
+        <script>document.write('<base href="' + document.location + '" />');</script>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link href="css/ng-tags-input.css" rel="stylesheet" />
+        <script src="js/lib/angular.js"></script>
+        <script src="js/lib/ng-tags-input.js"></script>
     </head>
     <body data-ng-app="employeeApp">
         <div data-ng-view></div>
-        
-        <script src="js/lib/angular.js"></script>
+
         <script src="js/lib/angular-route.js"></script>
         <script src="js/lib/angular-resource.js"></script>
+ 
         <script src="js/services/Initialize.js"></script>
         <script src="js/services/Employee.js"></script>
         <script src="js/services/Ability.js"></script>
