@@ -11,5 +11,4 @@
                 remove: { method: 'DELETE' }
             });
         });
-
 })();

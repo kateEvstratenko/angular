@@ -19,18 +19,23 @@
                     controller: 'EmployeesEditController',
                     templateUrl: 'views/edit.html',
                     resolve: {
-                        employee: function(Employee, $route) {
-                             return Employee.get({ id: $route.current.params.id }).$promise;
+                        employee: function (Employee, $route) {
+                            return Employee.get({ id: $route.current.params.id }).$promise;
                         },
-                        abilities: function(Ability) {
-                             return Ability.query().$promise;
+                        abilities: function (Ability) {
+                            return Ability.query();
                         }
                     }
                 });
-                
+
                 $routeProvider.when('/create', {
                     controller: 'EmployeesCreateController',
-                    templateUrl: 'views/create.html'
+                    templateUrl: 'views/create.html',
+                    resolve: {
+                        abilities: function (Ability) {
+                            return Ability.query();
+                        }
+                    }
                 });
 
                 $routeProvider.otherwise({
@@ -39,18 +44,14 @@
             }]
     );
 
-    angular.module('employeeApp').directive('tagDirective', function($q) {
-
-        link: (function(scope) {
-            scope.loadAbilities = function() {
-                return {name: 'qwerty'}; //Ability.query().$promise;
-              /*  var deferred = $q.defer();
-                deferred.resolve([{ text: 'Tag9' },{ text: 'Tag10' }]);
-                return deferred.promise;*/
+    angular.module('employeeApp').directive('tagDirective', function () {
+        return {
+            link: function (scope, Ability) {
+                scope.loadAbilities = function () {
+                    return Ability.query().$promise;
+                };
             }
-
-        });
+        }
     });
-
 
 })();

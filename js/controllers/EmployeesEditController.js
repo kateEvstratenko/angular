@@ -8,52 +8,35 @@
 
         $scope.save = function () {
             var len = $scope.employee.abilities.length;
-            var isEmployeeUpdated = false;
             for (var i = 0; i < len; i++) {
                 if (!$scope.employee.abilities[i]._id) {
                     (function () {
                         var index = i;
                         var abilityForSave = new Ability($scope.employee.abilities[index]);
-                        abilityForSave.$save().then(function () {
-                            $scope.employee.abilities[index]._id = abilityForSave._id;
-                            isEmployeeUpdated = true;
-                            updateEmployee();
-                        });
+                        abilityForSave.$save();
                     })();
                 }
             };
-            if (!isEmployeeUpdated) {
-                updateEmployee();
-            }
-        }
 
-        var updateEmployee = function () {
             Employee.update({ id: $scope.employee._id.$oid }, {
                 firstName: $scope.employee.firstName,
                 lastName: $scope.employee.lastName,
                 department: $scope.employee.department,
-                abilities: $scope.employee.abilities
+                abilities: getEmployeeAbilities()
             }).$promise.then(function () {
                 $location.path('/employees');
             });
         }
 
-        $scope.addAbility = function () {
-            var newAbility = { name: $scope.newAbilityName };
-            var abilityForSave = new Ability(newAbility);
-            abilityForSave.$save().then(function () {
-                //$scope.abilities = $route.current.locals.abilities;
-                var n = Ability.get({ id: abilityForSave._id.$oid }).$promise;
-                n.then(function () {
-                    $scope.employee.abilities.push(n);
+        var getEmployeeAbilities = function () {
+            var abilities = [];
+            for (var i = 0; i < $scope.employee.abilities.length; i++) {
+                abilities.push({
+                    name: $scope.employee.abilities[i].name,
+                    _id: new Object()
                 });
-
-            });
-        };
-
-
-        $scope.loadAbilities = function(query) {
-            return $scope.abilities.$promise;
+            }
+            return abilities;
         };
     });
 })();
